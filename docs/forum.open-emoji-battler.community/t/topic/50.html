@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Shiden smart-contract development progress update 👀 - General - 👑 Open Emoji Battler Forum</title>
+    <meta name="description" content="Our current focus is on releasing our game on Shiden Network, and we’ve been developing Wasm smart contracts for that. We had been quiet about the progress recently, so here I share some updates and plans. 
+Our ongoing m&amp;hellip;">
+    <meta name="generator" content="Discourse 3.0.3 - https://github.com/discourse/discourse version 59dd20c4153cef96ff0e848a087af4464a4bdcce">
+<link rel="icon" type="image/png" href="../../uploads/db9774/optimized/1X/b2b7d6cf9df4cdad913e7725a6295265a8073157_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/db9774/optimized/1X/b2b7d6cf9df4cdad913e7725a6295265a8073157_2_180x180.png">
+<meta name="theme-color" media="all" content="#36393e">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="50.html" />
+
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="👑 Open Emoji Battler Forum Search">
+
+    <link href="../../stylesheets/color_definitions_scheme_4_1_cd1e7c41edc06bb2e4cbca146eafd294f0cf3639.css%3F__ws=forum.open-emoji-battler.community.css" media="all" rel="stylesheet" class="light-scheme"/>
+
+  <link href="../../stylesheets/desktop_5b493e5a06da249b08849d2fb6e0bd30719efc36.css%3F__ws=forum.open-emoji-battler.community.css" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+
+  <link href="../../stylesheets/communiteq-features_5b493e5a06da249b08849d2fb6e0bd30719efc36.css%3F__ws=forum.open-emoji-battler.community.css" media="all" rel="stylesheet" data-target="communiteq-features"  />
+  <link href="../../stylesheets/discourse-akismet_5b493e5a06da249b08849d2fb6e0bd30719efc36.css%3F__ws=forum.open-emoji-battler.community.css" media="all" rel="stylesheet" data-target="discourse-akismet"  />
+  <link href="../../stylesheets/discourse-checklist_5b493e5a06da249b08849d2fb6e0bd30719efc36.css%3F__ws=forum.open-emoji-battler.community.css" media="all" rel="stylesheet" data-target="discourse-checklist"  />
+  <link href="../../stylesheets/discourse-details_5b493e5a06da249b08849d2fb6e0bd30719efc36.css%3F__ws=forum.open-emoji-battler.community.css" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="../../stylesheets/discourse-footnote_5b493e5a06da249b08849d2fb6e0bd30719efc36.css%3F__ws=forum.open-emoji-battler.community.css" media="all" rel="stylesheet" data-target="discourse-footnote"  />
+  <link href="../../stylesheets/discourse-local-dates_5b493e5a06da249b08849d2fb6e0bd30719efc36.css%3F__ws=forum.open-emoji-battler.community.css" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="../../stylesheets/discourse-narrative-bot_5b493e5a06da249b08849d2fb6e0bd30719efc36.css%3F__ws=forum.open-emoji-battler.community.css" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="../../stylesheets/discourse-presence_5b493e5a06da249b08849d2fb6e0bd30719efc36.css%3F__ws=forum.open-emoji-battler.community.css" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="../../stylesheets/discourse-solved_5b493e5a06da249b08849d2fb6e0bd30719efc36.css%3F__ws=forum.open-emoji-battler.community.css" media="all" rel="stylesheet" data-target="discourse-solved"  />
+  <link href="../../stylesheets/discourse-spoiler-alert_5b493e5a06da249b08849d2fb6e0bd30719efc36.css%3F__ws=forum.open-emoji-battler.community.css" media="all" rel="stylesheet" data-target="discourse-spoiler-alert"  />
+  <link href="../../stylesheets/lazy-yt_5b493e5a06da249b08849d2fb6e0bd30719efc36.css%3F__ws=forum.open-emoji-battler.community.css" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="../../stylesheets/poll_5b493e5a06da249b08849d2fb6e0bd30719efc36.css%3F__ws=forum.open-emoji-battler.community.css" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="../../stylesheets/poll_desktop_5b493e5a06da249b08849d2fb6e0bd30719efc36.css%3F__ws=forum.open-emoji-battler.community.css" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="../../stylesheets/desktop_theme_1_60c3656852fff46207e34ed32b5242416605f5eb.css%3F__ws=forum.open-emoji-battler.community.css" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="1" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Shiden smart-contract development progress update 👀&#39;" href="https://forum.open-emoji-battler.community/t/topic/50.rss" />
+    <meta property="og:site_name" content="👑 Open Emoji Battler Forum" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://forum.open-emoji-battler.community/uploads/db9774/original/1X/b2b7d6cf9df4cdad913e7725a6295265a8073157.png" />
+<meta property="og:image" content="https://forum.open-emoji-battler.community/uploads/db9774/original/1X/b2b7d6cf9df4cdad913e7725a6295265a8073157.png" />
+<meta property="og:url" content="https://forum.open-emoji-battler.community/t/topic/50" />
+<meta name="twitter:url" content="https://forum.open-emoji-battler.community/t/topic/50" />
+<meta property="og:title" content="Shiden smart-contract development progress update 👀" />
+<meta name="twitter:title" content="Shiden smart-contract development progress update 👀" />
+<meta property="og:description" content="Our current focus is on releasing our game on Shiden Network, and we’ve been developing Wasm smart contracts for that. We had been quiet about the progress recently, so here I share some updates and plans.  Our ongoing milestone is to deploy our MVP on Shiden. MVP stands for “minimum viable product,” and we run our game on the real network. With this MVP, we’ll be able to play our game on Shiden as smart contracts, similar to our online PrototypeNet.  We’re now implementing Wasm contracts with i..." />
+<meta name="twitter:description" content="Our current focus is on releasing our game on Shiden Network, and we’ve been developing Wasm smart contracts for that. We had been quiet about the progress recently, so here I share some updates and plans.  Our ongoing milestone is to deploy our MVP on Shiden. MVP stands for “minimum viable product,” and we run our game on the real network. With this MVP, we’ll be able to play our game on Shiden as smart contracts, similar to our online PrototypeNet.  We’re now implementing Wasm contracts with i..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="1 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="6 ❤" />
+<meta property="article:published_time" content="2022-01-07T02:43:32+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="../../index.html">
+    👑 Open Emoji Battler Forum
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="50.html">Shiden smart-contract development progress update 👀</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #0088CC'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>General</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='👑 Open Emoji Battler Forum'>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/tash_2s.html'><span itemprop='name'>tash_2s</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="50.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-01-07T02:43:32Z' class='post-time'>
+                January 7, 2022,  2:43am
+              </time>
+              <meta itemprop='dateModified' content='2022-01-07T02:43:32Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Our current focus is on releasing our game on Shiden Network, and we’ve been developing Wasm smart contracts for that. We had been quiet about the progress recently, so here I share some updates and plans.</p>
+<p>Our ongoing milestone is to deploy our MVP on Shiden. MVP stands for “minimum viable product,” and we run our game on the real network. With this MVP, we’ll be able to play our game on Shiden as smart contracts, similar to our online PrototypeNet.</p>
+<p>We’re now implementing Wasm contracts with ink language, and its frontend will follow. I aim to finish coding next month and deploy it on Shiden as one of the first Wasm contracts. Note that the Wasm contracts ecosystem and Shiden have been actively evolving, and we don’t know when it’ll be activated on chains, so it might be on a testnet at that time.</p>
+<p>The next step after the MVP is to upgrade the gameplay, and we’re going to have our first game round event with SDN rewards. Afterward, we’ll continuously improve the game and experience.</p>
+<p>Besides contracts, we have plans for our long-awaited NFTs. First, we’ll drop EMO NFTs to the participants for <a href="https://app.subsocial.network/@OpenEmojiBattler/open-emoji-battler-launch-airdrop-and-giveaway-17844">the previous airdrop and giveaway</a>, early this year. These NFTs will be transferable, but it takes some more time to make them usable in gameplay. Next, we plan to distribute more NFTs to the community and fund our treasury for stable development while increasing exposure and growing this community.</p>
+<p>That’s about it for now. Best wishes for 2022! <img src="../../images/emoji/twitter/bamboo.png%3Fv=9" title=":bamboo:" class="emoji" alt=":bamboo:"></p>
+<hr>
+<p>You can find the previous updates of Shiden contracts development <a href="48.html">here</a>.</p>
+        </div>
+
+        <meta itemprop='headline' content='Shiden smart-contract development progress update 👀'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+            <div class='crawler-linkback-list' itemscope itemtype='http://schema.org/ItemList'>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="51/3.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forum.open-emoji-battler.community/t/topic/51/3'>
+                      <span itemprop='name'>Treasury Report 2021-Q4</span>
+                    </a>
+                    <meta itemprop='position' content='3'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="57.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forum.open-emoji-battler.community/t/topic/57'>
+                      <span itemprop='name'>Quarterly Update: 2022 Q1 to Q2</span>
+                    </a>
+                    <meta itemprop='position' content='4'>
+                  </div>
+            </div>
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='👑 Open Emoji Battler Forum'>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/tash_2s.html'><span itemprop='name'>tash_2s</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="50.html">
+
+            <link itemprop="image" href="../../uploads/db9774/original/1X/1286bed2bd22393fa547edaf868960c06f47e799.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-01-07T02:45:36Z' class='post-time'>
+                January 7, 2022,  2:45am
+              </time>
+              <meta itemprop='dateModified' content='2022-01-07T02:45:36Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>P.S. Here is my recent build on PrototypeNet.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/db9774/original/1X/1286bed2bd22393fa547edaf868960c06f47e799.jpeg" data-download-href="https://forum.open-emoji-battler.community/uploads/db9774/1286bed2bd22393fa547edaf868960c06f47e799" title="image"><img src="../../uploads/db9774/optimized/1X/1286bed2bd22393fa547edaf868960c06f47e799_2_690x184.jpeg" alt="image" data-base62-sha1="2DThGahUs9id6SuSirTuufVasWZ" width="690" height="184" srcset="../../uploads/db9774/optimized/1X/1286bed2bd22393fa547edaf868960c06f47e799_2_690x184.jpeg, ../../uploads/db9774/optimized/1X/1286bed2bd22393fa547edaf868960c06f47e799_2_1035x276.jpeg 1.5x, ../../uploads/db9774/original/1X/1286bed2bd22393fa547edaf868960c06f47e799.jpeg 2x" data-small-upload="https://forum.open-emoji-battler.community/uploads/db9774/optimized/1X/1286bed2bd22393fa547edaf868960c06f47e799_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">1200×320 72.6 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Shiden smart-contract development progress update 👀'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='👑 Open Emoji Battler Forum'>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/tash_2s.html'><span itemprop='name'>tash_2s</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="50.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-02-09T08:47:45Z' class='post-time'>
+                February 9, 2022,  8:47am
+              </time>
+              <meta itemprop='dateModified' content='2022-02-09T08:47:45Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="onebox twitterstatus" data-onebox-src="https://twitter.com/OEB_community/status/1491331996635009028">
+  <header class="source">
+
+      <a href="https://twitter.com/OEB_community/status/1491331996635009028" target="_blank" rel="noopener">twitter.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <img src="../../uploads/db9774/optimized/1X/561e4bdfb08cc04a039b794d9ece134e3b9f9c81_2_690x388.jpeg" class="thumbnail onebox-avatar" width="690" height="388" srcset="../../uploads/db9774/optimized/1X/561e4bdfb08cc04a039b794d9ece134e3b9f9c81_2_690x388.jpeg, ../../uploads/db9774/optimized/1X/561e4bdfb08cc04a039b794d9ece134e3b9f9c81_2_1035x582.jpeg 1.5x, ../../uploads/db9774/original/1X/561e4bdfb08cc04a039b794d9ece134e3b9f9c81.jpeg 2x" data-small-upload="https://forum.open-emoji-battler.community/uploads/db9774/optimized/1X/561e4bdfb08cc04a039b794d9ece134e3b9f9c81_2_10x10.png">
+<h4><a href="https://twitter.com/OEB_community/status/1491331996635009028" target="_blank" rel="noopener">Open Emoji Battler 👑 Polkadot NFT Game</a></h4>
+<div class="twitter-screen-name"><a href="https://twitter.com/OEB_community/status/1491331996635009028" target="_blank" rel="noopener">@OEB_community</a></div>
+
+<div class="tweet">
+  <span class="tweet-description">Our game is working in Wasm smart contract. It'll be deployed on a Rococo Canvas testnet next. https://t.co/imkMbOTnP2</span>
+</div>
+
+<div class="date">
+  <a href="https://twitter.com/OEB_community/status/1491331996635009028" class="timestamp" target="_blank" rel="noopener">12:43 AM - 9 Feb 2022</a>
+
+    <span class="like">
+      <svg viewbox="0 0 512 512" width="14px" height="16px" aria-hidden="true">
+        <path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
+      </svg>
+      1
+    </span>
+
+</div>
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+        </div>
+
+        <meta itemprop='headline' content='Shiden smart-contract development progress update 👀'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='👑 Open Emoji Battler Forum'>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Ramz.html'><span itemprop='name'>Ramz</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="50.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-02-14T23:29:56Z' class='post-time'>
+                February 14, 2022, 11:29pm
+              </time>
+              <meta itemprop='dateModified' content='2022-02-14T23:29:56Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hey there <a class="mention" href="../../u/tash_2s.html">@tash_2s</a> ! Great development and only now I’m I doing a deep dive into this amazing dApp. I would love to participate more and help test. Whats the best way to follow progress and communicate? Discord or here on the Forum?</p>
+<p>Im looking forward to the developement on Shiden and hopefully later on Astar. I also have ideas I would love to share with you (when you have time, Im sure you are really busy).</p>
+<p>Great game!</p>
+        </div>
+
+        <meta itemprop='headline' content='Shiden smart-contract development progress update 👀'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='👑 Open Emoji Battler Forum'>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/tash_2s.html'><span itemprop='name'>tash_2s</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="50.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-02-15T12:58:27Z' class='post-time'>
+                February 15, 2022, 12:58pm
+              </time>
+              <meta itemprop='dateModified' content='2022-02-15T12:58:27Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hi <a class="mention" href="../../u/ramz.html">@Ramz</a>, thank you for the kind words! <img src="../../images/emoji/twitter/grin.png%3Fv=12" title=":grin:" class="emoji" alt=":grin:"></p>
+<p>Our communication channels are Discord, this forum, and Twitter. I drop the link on Discord when I make a topic here, so you can follow us there. I’ll post progress more.</p>
+<p>We want any kinds of participation, suggestions, etc. I’d like to know your idea! My Discord DM is also open if you prefer.</p>
+        </div>
+
+        <meta itemprop='headline' content='Shiden smart-contract development progress update 👀'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='👑 Open Emoji Battler Forum'>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/tash_2s.html'><span itemprop='name'>tash_2s</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="50.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-02-15T13:01:27Z' class='post-time'>
+                February 15, 2022,  1:01pm
+              </time>
+              <meta itemprop='dateModified' content='2022-02-15T13:01:27Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>My current task is to deploy the smart contract to live testnet, so anyone will be able to touch it. Shiden and their testnet don’t have Wasm smart-contract feature yet, so I’ll use a Rococo Canvas testnet now. After that, I’ll make a post about it and update some outdated pages and technical docs.</p>
+        </div>
+
+        <meta itemprop='headline' content='Shiden smart-contract development progress update 👀'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='../../index.html' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='../../categories.html' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='../../tos.html' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

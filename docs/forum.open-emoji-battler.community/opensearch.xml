@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>👑 Open Emoji Battler Forum Search</ShortName>
+  <Description>Search for posts on 👑 Open Emoji Battler Forum</Description>
+  <Tags>discourse forum</Tags>
+    <Image type="image/png">https://forum.open-emoji-battler.community/uploads/db9774/optimized/1X/b2b7d6cf9df4cdad913e7725a6295265a8073157_2_32x32.png</Image>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://forum.open-emoji-battler.community/opensearch.xml"/>
+  <Url type="text/html" template="https://forum.open-emoji-battler.community/search?q={searchTerms}"/>
+  <Query role="example" searchTerms="search term"/>
+</OpenSearchDescription>
